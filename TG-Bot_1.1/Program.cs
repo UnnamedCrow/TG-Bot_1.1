@@ -33,6 +33,7 @@ namespace TG_Bot_1._1
         {
             // Инициализация конфигурации
             AppSettings appSettings = BuildAppSettings();
+            services.AddSingleton(appSettings);
             // Регистрируем объект TelegramBotClient c токеном подключения
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
             // Подключаем контроллеры сообщений и нажатия кнопок
